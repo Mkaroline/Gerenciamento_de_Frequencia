@@ -1,4 +1,4 @@
-# Gerenciamento_de_Frequencia
+<h1 align="center"> Gerenciamento_de_Frequencia ></h1
 
 Este gerenciamento de frequência, tem o objetivo de monitorar o tempo que cada funcionario dedica ao trabalho. Ele permite registrar entradas e saídas, além de oferecer funcionalidades para cadastrar, buscar, atualizar e excluir dados relacionados à frequência dos funcionários.
 
