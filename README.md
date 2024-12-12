@@ -10,5 +10,5 @@ Este gerenciamento de frequência, tem o objetivo de monitorar o tempo que cada 
 
 * CHANGELOG 
 
-- Atualizamos a Views.py  e o models.py usando a extensão pylint para limpar o código
+- Atualizamos a Views.py  e o models.py usando a extensão pylint e Flake8 para limpar o código
 
