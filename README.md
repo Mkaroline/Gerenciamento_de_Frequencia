@@ -4,9 +4,9 @@
 
 * APPS 
 
-- users - É responsável por armazenar tudo relacionado ao gerenciamento de usuários, como cadastro, consulta, atualização e exclusão de dados.
+- Users - É responsável por armazenar tudo relacionado ao gerenciamento de usuários, como cadastro, consulta, atualização e exclusão de dados.
 
-- frequencias - É responsavel por monitorar o tempo de trabalho de cada funcionário
+- Frequencias - É responsavel por monitorar o tempo de trabalho de cada funcionário
 
 * CHANGELOG 
 
