@@ -64,4 +64,5 @@ class FuncionarioViewSetCreate(ModelViewSet):
         funcionario = self.get_object()
         funcionario.user.delete()  # Exclui o usuário associado
         funcionario.delete()
-        return Response({"Info": "Funcionário excluído com sucesso!"}, status=status.HTTP_204_NO_CONTENT)
+        return Response({"Info": "Funcionário excluído com sucesso!"},
+                        status=status.HTTP_204_NO_CONTENT)

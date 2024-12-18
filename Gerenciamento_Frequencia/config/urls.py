@@ -15,19 +15,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
 from rest_framework.routers import SimpleRouter
 from rest_framework.authtoken import views
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from frequencias.api.views import FrequenciaViewSet
 from users.api.views import FuncionarioViewSetCreate, UserProfileExampleViewSet
 from users.views import LoginView
+from django.urls import path
 
 # Configurando o router do DRF
 router = SimpleRouter()
 router.register("users", UserProfileExampleViewSet, basename="users")
 router.register("funcionarios", FuncionarioViewSetCreate, basename="funcionarios")
-router.register("frequencias", FrequenciaViewSet, basename="frequencias")  
+router.register("frequencias", FrequenciaViewSet, basename="frequencias") 
+
+def trigger_error():
+    division_by_zero = 1 / 0
 
 urlpatterns = [
     # Admin
@@ -43,9 +46,13 @@ urlpatterns = [
     # Views manuais
     path("login/", LoginView.as_view(), name="login"),
 
+    path('sentry-debug/', trigger_error)
+    # ...
+]
+
     # Incluindo as URLs do app frequencias
     #path("frequencias/", include("frequencias.urls")),  # Inclui URLs adicionais do app frequencias
-]
+
 
 # Adicionando as rotas do DRF
 urlpatterns += router.urls
