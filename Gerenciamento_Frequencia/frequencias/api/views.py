@@ -1,11 +1,13 @@
-""" Comentario para ser erro """
+
 import logging
 from datetime import datetime
+# from tokenize import Ignore
 from rest_framework import status
 from rest_framework.exceptions import PermissionDenied, NotAuthenticated
-from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+
 
 from frequencias.api.serializers import FrequenciaSerializer
 from frequencias.models import FrequenciaModel
@@ -17,6 +19,7 @@ class FrequenciaViewSet(ModelViewSet):
     """ViewSet para manipulação das instacias"""
     serializer_class = FrequenciaSerializer
     permission_classes = [AllowAny]
+    # pylint:Ignore = E1101 
     queryset = FrequenciaModel.objects.all()
 
     def create(self, request, *args, **kwargs):
@@ -59,11 +62,7 @@ class FrequenciaViewSet(ModelViewSet):
             return Response(
                 {"Info": "Esta Frequência já foi cadastrada antes!"},
                 status=status.HTTP_409_CONFLICT)
-        except Exception:
-            return Response(
-                {"Erro": "Erro ao criar frequência."},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
+            
     def update(self, request, *args, **kwargs):
         try:
             frequencia = self.get_object()
