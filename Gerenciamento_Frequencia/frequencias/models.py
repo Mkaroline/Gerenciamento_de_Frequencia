@@ -1,4 +1,3 @@
-"""teste"""
 from datetime import datetime
 from django.db import models
 from users.models import Funcionario
@@ -17,6 +16,19 @@ class FrequenciaModel(models.Model):
         )
 
     class Meta:
-        """Meta informações do modelo."""
         verbose_name = "Frequência"
         verbose_name_plural = "Frequências"
+
+
+class FuncionarioModel(models.Model):
+    """Modelo que representa o Funcionário"""
+    nome = models.CharField(max_length=140)
+    matricula = models.CharField(max_length=12)
+    departamento = models.CharField(max_length=140)
+
+    def __str__(self):
+        return f'Funcionario - Frequencia[{self.nome}] - [{self.matricula}]'
+
+    class Meta:
+        verbose_name = "Funcionario"
+        verbose_name_plural = "Funcionarios"

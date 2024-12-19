@@ -19,7 +19,7 @@ class Funcionario(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nome
+     return (self.nome)
     
     class Meta:
         verbose_name = "Funcionario"

@@ -1,16 +1,17 @@
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
-from frequencias.models import FrequenciaModel
+from frequencias.models import FrequenciaModel, FuncionarioModel
 
 """classe frequencia Serializer"""
 class FrequenciaSerializer(ModelSerializer):
 
     class Meta:
         model = FrequenciaModel
-        fields = "__all__"
+        fields = ["funcionario","hora_inicio", "hora_fim"]
 
 
-class FrequenciaCreateSerializer(serializers.Serializer):
-    funcionario = serializers.IntegerField()
-    hora_inicio = serializers.DateTimeField()
-    hora_fim = serializers.DateTimeField(required=False, default=None)
+class FuncionarioSerializer(ModelSerializer):
+
+    class Meta:
+        model = FuncionarioModel
+        fields = ['nome', 'matricula', 'departamento']
