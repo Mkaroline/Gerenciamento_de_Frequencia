@@ -1,4 +1,6 @@
+"""teste"""
 import logging
+
 from datetime import datetime
 from rest_framework import status
 from rest_framework.exceptions import PermissionDenied, NotAuthenticated
@@ -11,6 +13,7 @@ from frequencias.models import FrequenciaModel
 
 logger = logging.getLogger("frequencias")
 
+
 class FrequenciaViewSet(ModelViewSet):
     """ViewSet para manipulação das instâncias de Frequência."""
     serializer_class = FrequenciaSerializer
@@ -22,14 +25,12 @@ class FrequenciaViewSet(ModelViewSet):
         Define permissões diferentes dependendo da ação executada.
         """
         if self.action in ['create', 'update', 'partial_update', 'destroy']:
-            return [IsAdminUser()]  # Apenas administradores podem criar, atualizar ou excluir
-        return super().get_permissions()  # Permissões padrão para outras ações
+
+            return [IsAdminUser()]
+        return super().get_permissions()
 
     def create(self, request, *args, **kwargs):
-        """
-        Cria uma nova Frequência para um Funcionário.
-        Verifica se já não existe uma frequência em aberto para o mesmo funcionário.
-        """
+        """Cria uma nova Frequência para um Funcionário."""
         serializer = FrequenciaSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
@@ -37,7 +38,6 @@ class FrequenciaViewSet(ModelViewSet):
             funcionario = serializer.validated_data['funcionario']
             hora_atual = datetime.now()
 
-            # Verifica se o funcionário já tem uma frequência aberta (sem hora de fim)
             frequencia_existe = FrequenciaModel.objects.filter(
                 funcionario=funcionario,
                 hora_fim=None).exists()
@@ -58,7 +58,8 @@ class FrequenciaViewSet(ModelViewSet):
             serializer_saida = FrequenciaSerializer(nova_frequencia)
             logger.info("Frequência Criada!")
             return Response(
-                {"Info": "Frequência iniciada com sucesso!", "data": serializer_saida.data},
+                {"Info": "Frequência iniciada com sucesso!",
+                 "data": serializer_saida.data},
                 status=status.HTTP_201_CREATED
             )
 
@@ -77,12 +78,10 @@ class FrequenciaViewSet(ModelViewSet):
             )
 
     def update(self, request, *args, **kwargs):
-        """
-        Atualiza a hora de fim da Frequência, marcando como finalizada.
-        """
+
         try:
-            frequencia = self.get_object()  # Obtém o objeto de frequência a ser atualizado
-            frequencia.hora_fim = datetime.now()  # Marca o fim da frequência
+            frequencia = self.get_object()
+            frequencia.hora_fim = datetime.now()
             frequencia.save()
 
             serializer_saida = FrequenciaSerializer(frequencia)
