@@ -14,7 +14,7 @@
 - Teste na insomnia
   
 ## :family_man_woman_girl: Equipe
-:woman_teacher: Docente: [José Ferdinandy Silva Chagas]().<br />
+:woman_teacher: Docente: [José Ferdinandy Silva Chagas](https://github.com/FerdinandChagas).<br />
 :woman_student: Discente: [Maria Karoline Firmino de Moura](https://github.com/Mkaroline).<br />
 :woman_student: Discente: [Renan Lucas Melo de Oliveira](https://github.com/RenanLucas19).<br />
 :woman_student: Discente: [Maria Herculana da Silva Souza](https://github.com/Mhercu).<br />
