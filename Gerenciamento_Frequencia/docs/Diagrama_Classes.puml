@@ -1,0 +1,19 @@
+@startuml
+class FrequenciaModel {
+    + DateTimeField hora_inicio = datetime.now()
+    + DateTimeField hora_fim
+    + ForeignKey funcionario
+    --
+    + __str__() : str
+}
+
+class FuncionarioModel {
+    + CharField nome (max_length=140)
+    + CharField matricula (max_length=12)
+    + CharField departamento (max_length=140)
+    --
+    + __str__() : str
+}
+
+FrequenciaModel --> FuncionarioModel : +funcionario (on_delete=CASCADE)
+@enduml
