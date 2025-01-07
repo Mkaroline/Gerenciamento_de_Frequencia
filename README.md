@@ -12,6 +12,9 @@
 
 - Atualizamos a Views.py  e o models.py usando a extensão pylint e Flake8 para limpar o código
 - Testes no Insomnia
+- Implementamos os testes com a classe TesteCase com a biblioteca pytest.
+- colocamos o Modelo de classes  UML
+  
 
 ## :family_man_woman_girl: Equipe
 :woman_teacher: Docente: [José Ferdinandy Silva Chagas](https://github.com/FerdinandChagas).<br />
