@@ -5,7 +5,6 @@ from rest_framework.authtoken.models import Token
 
 from rest_framework.test import APIClient
 
-
 class FrequenciaTesteCase(TestCase):
     def setUp(self):
         self.nova_frequencia = FrequenciaModel.objects.create(
@@ -57,6 +56,7 @@ class FrequenciaTesteCase(TestCase):
         }
         response = self.client.put(url,data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
     def test_deletar_frequencias(self):
         url = f"http://localhost:8000/frequencias/{self.nova_frequencias.id}/"
         response = self.client.delete(url)
@@ -105,7 +105,7 @@ class FrequenciaTesteCase(TestCase):
         self.assertEqual(response.data[0]['matricula'], "123456789123")
         
     def test_atualizar_funcionario(self):
-        url = f"http://localhost:8000/funcionarios/{self.nova_funcionario.id}/"
+        url = f"http://localhost:8000/funcionarios/{self.novo_funcionario.id}/"
         FuncionarioModel.objects.create(
         id = 9,
 		nome = "Maria Silva",
@@ -121,11 +121,11 @@ class FrequenciaTesteCase(TestCase):
         response = self.client.put(url,data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
-    def test_deletar_reservas(self):
-        url = f"http://localhost:8000/funcionarios/{self.nova_funcionario.id}/"
+    def test_deletar_funcionario(self):
+        url = f"http://localhost:8000/funcionarios/{self.novo_funcionario.id}/"
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-        self.assertFalse(FuncionarioModel.objects.filter(id=self.nova_funcionario.id).exists())
+        self.assertFalse(FuncionarioModel.objects.filter(id=self.novo_funcionario.id).exists())
 
             
             
