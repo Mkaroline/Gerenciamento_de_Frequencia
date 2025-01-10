@@ -18,4 +18,4 @@ class FrequenciaService:
             hora_fim=data['hora_fim'],
             funcionario=data['funcionario']
     )
-        return nova_frequencia_
+        return nova_frequencia
