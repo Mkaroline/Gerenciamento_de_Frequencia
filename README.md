@@ -6,16 +6,16 @@
 
 - Users - É responsável por armazenar tudo relacionado ao gerenciamento de usuários, como cadastro, consulta, atualização e exclusão de dados.
 
-- Frequencias - É responsavel por monitorar o tempo de trabalho de cada funcionário
+- Frequências - É responsável por monitorar o tempo de trabalho de cada funcionário.
 
 * CHANGELOG 
 
-- Atualizamos a Views.py  e o models.py usando a extensão pylint e Flake8 para limpar o código
-- Testes no Insomnia
+- Atualizamos a Views.py  e o models.py usando a extensão pylint e Flake8 para limpar o código.
+- Testes no Insomnia.
 - Implementamos os testes com a classe TesteCase com a biblioteca pytest.
 - Criamos uma camada de serviços na arquitetura movendo a lógica das regras de negócio das views para um arquivo services.py.
 - Implementamos classes factories para construção de objetos com dados fictícios para testes na população do banco de dados.
-- Colocamos o Modelo de classes UML
+- Colocamos o Modelo de classes UML.
 
 
 ## :family_man_woman_girl: Equipe
