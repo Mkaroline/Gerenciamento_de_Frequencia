@@ -8,8 +8,9 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
-from frequencias.api.serializers import FrequenciaSerializer
-from frequencias.models import FrequenciaModel
+from frequencias.api.serializers import FrequenciaSerializer, FuncionarioSerializer
+from frequencias.models import FrequenciaModel,FuncionarioModel
+from frequencias.services import FrequenciaService  
 
 logger = logging.getLogger("frequencias")
 
@@ -19,7 +20,7 @@ class FrequenciaViewSet(ModelViewSet):
     serializer_class = FrequenciaSerializer
     permission_classes = [IsAuthenticated]
     queryset = FrequenciaModel.objects.all()
-
+    service = FrequenciaService()
     def get_permissions(self):
         """
         Define permissões diferentes dependendo da ação executada.
@@ -35,6 +36,8 @@ class FrequenciaViewSet(ModelViewSet):
         serializer.is_valid(raise_exception=True)
 
         try:
+            nova_frequencia = self.service.create(data=serializer.validated_data)
+
             funcionario = serializer.validated_data['funcionario']
             hora_atual = datetime.now()
 
